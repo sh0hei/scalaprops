@@ -69,8 +69,7 @@ object build {
 
   lazy val gen = module("gen").settings(
     name := genName,
-    description := "pure functional random value generator",
-    libraryDependencies += "org.scalaz" %%% "scalaz-core" % scalazVersion.value
+    description := "pure functional random value generator"
   ).platformsSettings(JSPlatform, NativePlatform)(
     unmanagedSourceDirectories in Compile += {
       baseDirectory.value.getParentFile / "js_native/src/main/scala/"

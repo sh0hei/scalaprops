@@ -20,9 +20,11 @@ lazy val nativeProjects = Seq[ProjectReference](
   genNative, coreNative, scalapropsNative, scalazlawsNative
 )
 
-lazy val genJS = gen.js
-lazy val genJVM = gen.jvm
-lazy val genNative = gen.native
+lazy val scalazSnapshotURI = uri("git://github.com/scalaz/scalaz#series/7.3.x")
+
+lazy val genJS = gen.js.dependsOn(ProjectRef(scalazSnapshotURI, "coreJS"))
+lazy val genJVM = gen.jvm.dependsOn(ProjectRef(scalazSnapshotURI, "coreJVM"))
+lazy val genNative = gen.native.dependsOn(ProjectRef(scalazSnapshotURI, "coreNative"))
 lazy val genRoot = project.aggregate(genJS, genJVM, genNative).settings(
   Common.commonSettings,
   notPublish
