@@ -2,11 +2,10 @@ import sbt._, Keys._
 import Common._
 
 import scalanative.sbtplugin.ScalaNativePlugin.autoImport._
-import scalajscrossproject.ScalaJSCrossPlugin.autoImport.{toScalaJSGroupID => _, _}
 import sbtcrossproject.CrossPlugin.autoImport._
 import sbtcrossproject.CrossProject
 import sbtcrossproject.CrossProject._
-import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport.scalaJSVersion
+import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 
 object build {
 
