@@ -39,6 +39,11 @@ matrix:
       jdk: oraclejdk8
     - scala: 2.13.0-M2
       jdk: oraclejdk8
+      before_script:
+      - git clone -b v0.9.4 https://github.com/non/kind-projector.git
+      - cd kind-projector
+      - sbt ++${TRAVIS_SCALA_VERSION} 'set libraryDependencies ~= {_.filterNot(_.organization == "org.ensime")}' publishLocal
+      - cd ..
     - scala: 2.11.11
       jdk: oraclejdk8
       sudo: required
