@@ -20,6 +20,6 @@ object OptionTest extends Scalaprops {
   val test2 =
     Properties.list(
       scalazlaws.monoid.all[Option[Int]],
-      scalazlaws.band.all[Option[ISet[Int]]]
+      scalazlaws.semilattice.all[Option[ISet[Int]]]
     )
 }
